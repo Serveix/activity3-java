@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <display-name>CS13304</display-name>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Definición y configuración de Servlets -->
+    <servlet>
+        <servlet-name>UploadServlet</servlet-name>
+        <servlet-class>me.jmll.UploadServlet</servlet-class>
+        <multipart-config>
+            <location>C:\Users\Eli\IdeaProjects\Actividad3\tmp</location>	<!-- En Windows cambiar -->
+            <max-file-size>209715200</max-file-size> <!-- 200MB -->
+            <max-request-size>209715200</max-request-size> <!-- 200MB -->
+            <file-size-threshold>5242880</file-size-threshold> <!-- 5MB -->
+        </multipart-config>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadServlet</servlet-name>
+        <url-pattern>/UploadServlet</url-pattern>
+        <url-pattern>/Upload</url-pattern>
+    </servlet-mapping>
+
+    <!-- 1. Definicion del DownloadServlet -->
+    <servlet>
+        <servlet-name>DownloadServlet</servlet-name>
+        <servlet-class>me.jmll.DownloadServlet</servlet-class>
+    </servlet>
+
+    <!-- 2. Definicion del servlet mapping-->
+    <servlet-mapping>
+        <servlet-name>DownloadServlet</servlet-name>
+        <url-pattern>/Download</url-pattern>
+        <url-pattern>/DownloadServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- 3. Definicion del context init param -->
+    <context-param>
+        <param-name>pathDestino</param-name>
+        <param-value>C:\Users\Eli\IdeaProjects\Actividad3\uploads</param-value>
+    </context-param>
+
+</web-app>
+
+
+
+
+

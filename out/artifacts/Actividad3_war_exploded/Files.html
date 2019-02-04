@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Files</title>
+</head>
+<body>
+
+    <h2>Subir archivo</h2>
+    <div id="form1-section">
+        <form id="upload" action="UploadServlet" method="post" enctype="multipart/form-data">
+            <label for="file">Archivo</label>
+            <input id="file" type="file" name="file"/>
+            <input type="submit" value="Subir" />
+        </form>
+    </div>
+
+    <!-- Nuevo form agregado: -->
+    <h2>Descargar archivo</h2>
+    <div>
+        <form id="download" action="DownloadServlet" method="get">
+            <input type="text" name="fileName" placeholder="archivo.ext" />
+            <input type="submit" value="Descargar"/>
+        </form>
+    </div>
+
+</body>
+</html>
